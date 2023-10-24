@@ -1,0 +1,21 @@
+extends ./layout/main.pug
+
+block content
+  main 
+    h1 My products
+
+    if productList.length > 0
+      for product in productList
+        div.grid
+          article.card.product-item
+            header.card__header
+              h1.product__title #{product.title}
+            div.card__image
+              img(src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Gutenberg_Bible%2C_Lenox_Copy%2C_New_York_Public_Library%2C_2009._Pic_01.jpg/640px-Gutenberg_Bible%2C_Lenox_Copy%2C_New_York_Public_Library%2C_2009._Pic_01.jpg", alt="Lol error")
+            div.card__content
+              h2.product__price $19
+              p.product__description A very nice book
+            div.card__actions
+              button.btn Add to cart
+    else
+      h2 Things blank :(

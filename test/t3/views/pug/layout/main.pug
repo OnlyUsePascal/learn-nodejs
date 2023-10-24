@@ -1,0 +1,21 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title #{pageTitle}
+    link(rel="stylesheet", href="/style/main.css")
+    link(rel="stylesheet", href="/style/product.css")
+    block styles
+
+  body 
+    header.main-header
+      nav.main-header__nav
+        ul.main-header__item-list
+          li.main-header__item
+            a(class=((route === 'index') ? 'active' : ''), href="/index") Shop
+          li.main-header__item
+            a(class=((route === 'product') ? 'active' : ''), href="/product") Add product
+    
+    block content 
+      
