@@ -1,0 +1,21 @@
+<%- include('../layouts/header') -%>
+  <main>
+    <h1>Product Info</h1>
+    <div class="grid">
+      <article class="card product-item">
+        <header class="card__header">
+          <h1 class="product__title"><%= product.title %></h1>
+          </header>
+        <div class="card__image">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Gutenberg_Bible%2C_Lenox_Copy%2C_New_York_Public_Library%2C_2009._Pic_01.jpg/640px-Gutenberg_Bible%2C_Lenox_Copy%2C_New_York_Public_Library%2C_2009._Pic_01.jpg" alt="Image here">
+          </div>
+        <div class="card__content">
+          <h2 class="product__price">$10</h2>
+          <p class="product__description"> A nice book</p>
+          </div>
+        <div class="card__actions">
+          <button class="btn">Add to cart</button>
+          </div>
+      </article>
+    </div>
+<%- include('../layouts/footer') -%>

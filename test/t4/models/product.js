@@ -14,6 +14,16 @@ class Product {
     })
   }
  
+  static findProduct(idx, cb) {
+    this.getProducts(productList => {
+      console.log('* find product');
+      let product = productList[idx];
+      console.log(product);
+      
+      cb(product);
+    })
+  }
+  
   saveProduct() {
     // retrieve -> push -> write
     Product.getProducts(productList => {
@@ -22,6 +32,8 @@ class Product {
       fileHandler.writeData(productList);
     });
   } 
+
+
 }
 
 module.exports = Product;

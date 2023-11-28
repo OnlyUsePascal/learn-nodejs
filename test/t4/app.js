@@ -23,7 +23,7 @@ app.get("/", (req, res) => {
 });
 app.use(errorController.getError);
 
-const port = 3000;
+const port = 3001;
 app.listen(port, () => {
   console.log(`* Listening to port ${port}`);
 });
