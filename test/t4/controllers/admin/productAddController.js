@@ -3,13 +3,13 @@ const Product = require('../../models/product');
 exports.getAddProduct = (req, res, next) => {
   res.render('admin/productAdd', {
     pageTitle : 'Add product', 
-    route: 'product', 
+    route: 'productAdd', 
     cssFile: 'form.css', 
     });
 };
 
 exports.postAddProduct = (req, res, next) => {
   let product = new Product(req.body.title);
-  product.saveProduct();
+  product.saveNewProduct();
   res.redirect('/');
 };

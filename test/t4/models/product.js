@@ -3,37 +3,56 @@ const fileHandler = require('../utils/fileHandler');
 // let productList = fileHandler.getData();
 
 class Product {
+  static productList = null;
+
   constructor(title) {
     this.title = title;
   }
 
   static getProducts(cb) {
+    console.log("* get products");
     fileHandler.getData((data) => {
-      console.log("* get products");
+      this.productList = data;
       cb(data);
-    })
+    });
   }
  
-  static findProduct(idx, cb) {
-    this.getProducts(productList => {
-      console.log('* find product');
-      let product = productList[idx];
-      console.log(product);
-      
-      cb(product);
-    })
+  static findProduct(id, cb) {
+    console.log('* find product');
+    if (this.productList != null) {
+      cb(this.productList[id]);
+    } else {
+      this.getProducts(productList => {
+        let product = productList[id];
+        // console.log(product);
+        cb(product);
+      });
+    }
   }
   
-  saveProduct() {
+  static editProduct(id, newTitle){
+    console.log('* edit product');
+    this.findProduct(id, product => {
+      product.title = newTitle;
+      this.saveProduct();
+    })
+  }
+
+  static saveProduct(){
+    console.log('* save product');
+    if (this.productList != null){
+      fileHandler.writeData(this.productList);
+    }
+  }
+
+  saveNewProduct() {
     // retrieve -> push -> write
+    console.log('* add new product');
     Product.getProducts(productList => {
-      console.log('* save product');
       productList.push(this);
-      fileHandler.writeData(productList);
+      Product.saveProduct();
     });
-  } 
-
-
+  }
 }
 
 module.exports = Product;

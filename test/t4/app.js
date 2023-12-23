@@ -5,6 +5,7 @@ const routeAdmin = require("./routes/adminRoute");
 const path = require("path");
 const errorController = require('./controllers/errorController');
 const app = express();
+const Product = require("./models/product");
 
 // template
 app.set("view engine", "ejs");
