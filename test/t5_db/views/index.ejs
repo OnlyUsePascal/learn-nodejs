@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/style/index.css" />
+  </head>
+  <body>
+    <div style="margin-bottom: 10px;">
+      <a href="/addProduct" class="btn">More Product</a>
+    </div>
+    <% if (products.length > 0) { %>
+    <div class="grid">
+      <% products.forEach((product, idx) => { %>
+      <div class="product">
+        <h3><%= product.name %></h3>
+        <img src=<%= product.img %> alt="https://img.freepik.com/premium-vector/error-symbol_592324-8315.jpg">
+      </div>
+      <% }) %>
+    </div>
+    <% } else { %>
+    <h2>Nothing here yet</h2>
+    <% } %>
+  </body>
+</html>

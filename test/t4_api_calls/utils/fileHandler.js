@@ -1,6 +1,6 @@
 const path = require("path");
 const fs = require("fs");
-const pathHandler = require("../utils/pathHandler");
+const pathHandler = require("./pathHandler");
 
 let dataPath = path.join(pathHandler.pathRoot, "data", "product.json");
 
