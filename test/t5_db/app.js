@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const allProducts = require('./controllers/allProducts');
 const addProduct = require('./controllers/addProduct');
+const productInfo = require('./controllers/productInfo');
 
 // middlewear
 app.use(express.static(path.join(__dirname, 'public')));
@@ -15,6 +16,7 @@ app.set('views', './views');
 
 app.get('/allProducts', allProducts);
 app.use('/addProduct', addProduct);
+app.use('/product/', productInfo);
 
 app.use((req, res) => {
   res.status(404).send('something went wrong :(');

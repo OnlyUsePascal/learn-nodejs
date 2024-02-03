@@ -16,6 +16,7 @@
       <div class="product">
         <h3><%= product.name %></h3>
         <img src=<%= product.img %> alt="https://img.freepik.com/premium-vector/error-symbol_592324-8315.jpg">
+        <a href="<%= '/product/' + product.name.split(' ').join('_'); %>">Details</a>
       </div>
       <% }) %>
     </div>
