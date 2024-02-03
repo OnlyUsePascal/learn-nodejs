@@ -5,6 +5,7 @@ const path = require('path');
 const allProducts = require('./controllers/allProducts');
 const addProduct = require('./controllers/addProduct');
 const productInfo = require('./controllers/productInfo');
+const sequelize = require('./util/sequelizeUtil');
 
 // middlewear
 app.use(express.static(path.join(__dirname, 'public')));
@@ -18,10 +19,16 @@ app.get('/allProducts', allProducts);
 app.use('/addProduct', addProduct);
 app.use('/product/', productInfo);
 
+// sequelize
+sequelize.sync().then(result => {
+  console.log('sequelize sync done');
+}).catch(err => {
+  console.log(err);
+});
+
 app.use((req, res) => {
   res.status(404).send('something went wrong :(');
 });
-
 
 let port = 3001;
 app.listen(port, () => {
